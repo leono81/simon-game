@@ -3,12 +3,11 @@ const celeste = document.getElementById('celeste')
 const violeta = document.getElementById('violeta')
 const naranja = document.getElementById('naranja')
 const verde = document.getElementById('verde')
-const ULTIMO_NIVEL = 10
+const ULTIMO_NIVEL = 4
 
 class Juego {
     constructor () {
         this.elegirColor = this.elegirColor.bind(this)//.bind(this) sirve para que al momento de llamar a la funcion, no pierda la referencia
-        this.secuencia = []
         this.level = 1
         this.colores = {
             celeste,
@@ -78,13 +77,15 @@ class Juego {
         const nombreColor = ev.target.dataset.color
         const numeroColor = this.trasnformarColorANumero(nombreColor)
         this.iluminarColor(nombreColor)
+        // debugger
         if (numeroColor === this.secuencia[this.subnivel]){
             this.subnivel++
             if (this.subnivel === this.level){
                 this.level++
+                this.subnivel = 0
                 this.eliminarEventosClick()
                 if (this.level === (ULTIMO_NIVEL + 1)){
-                    // alert("Ganaste!")
+                    this.ganoElJuego()
                 }
                 else{
                     setTimeout(this.siguienteNivel, 1500)
@@ -92,7 +93,7 @@ class Juego {
             }
         }
         else{
-            // alert("Perdiste!")
+            this.perdioElJuego()
         }
 
     }
@@ -114,6 +115,17 @@ class Juego {
     siguienteNivel() {
         this.iluminarSecuencia()
         this.agregarEventosClick()
+    }
+
+    ganoElJuego() {
+        swal('Felicitaciones', 'Ganaste el juego!', 'success')
+    }
+
+    perdioElJuego() {
+        swal('Lo siento', 'Te equivocaste!', 'error')
+        .then(() => {
+            this.eliminarEventosClick()
+        })
     }
 }
 

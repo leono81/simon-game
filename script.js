@@ -3,12 +3,12 @@ const celeste = document.getElementById('celeste')
 const violeta = document.getElementById('violeta')
 const naranja = document.getElementById('naranja')
 const verde = document.getElementById('verde')
-const ULTIMO_NIVEL = 4
 
 class Juego {
     constructor () {
         this.elegirColor = this.elegirColor.bind(this)//.bind(this) sirve para que al momento de llamar a la funcion, no pierda la referencia
         this.level = 1
+        this.ULTIMO_NIVEL = 1
         this.colores = {
             celeste,
             violeta,
@@ -23,11 +23,13 @@ class Juego {
     }
     
     inicializar() {
-        btnEmpezar.classList.add('hide')
+        const chooseLevel = document.getElementById('levels')
+        this.ULTIMO_NIVEL = parseInt(chooseLevel.value)
+        btnEmpezar.disabled = true;
     }
 
     generarSecuencia() {
-        this.secuencia =  new Array(ULTIMO_NIVEL).fill(0).map(n => Math.floor(Math.random() * 4))
+        this.secuencia =  new Array(this.ULTIMO_NIVEL).fill(0).map(n => Math.floor(Math.random() * 4))
     }
 
 
@@ -84,7 +86,7 @@ class Juego {
                 this.level++
                 this.subnivel = 0
                 this.eliminarEventosClick()
-                if (this.level === (ULTIMO_NIVEL + 1)){
+                if (this.level === (this.ULTIMO_NIVEL + 1)){
                     this.ganoElJuego()
                 }
                 else{

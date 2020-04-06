@@ -1,78 +1,92 @@
 body {
-    margin: 0;
-    background: #dedede;
-    display: flex;
-    align-items: center;
-    height: 100vh;
-  }
+  margin: 0;
+  background: #dedede;
+  align-items: center;
+  height: 100vh;
+}
 
-  .gameboard {
-    height: 100vh;
-    width: 100vh;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    max-height: 60vh;
-    max-width: 60vh;
-  }
+h1  {
+  text-align: center;
+  margin: 40px 0 100px;
+}
 
-  .color {
-    width: 50%;
-    height: 50%;
-    display: inline-block;
-  }
+.game__wrapper {
+  display: flex;
+}
 
-  .left {
-    float: left;
-  }
+.gameboard {  
+  height: 100vh;
+  width: 100vh;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  max-height: 60vh;
+  max-width: 60vh;
+}
 
-  .right {
-    float: left;
-  }
+.color {
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+}
 
-  .celeste {
-    background: #22a6b3;
-  }
+.left {
+  float: left;
+}
 
-  .celeste.light {
-    background: #7ed6df;
-  }
+.right {
+  float: left;
+}
 
-  .violeta {
-    background: #be2edd;
-  }
+.celeste {
+  background: #22a6b3;
+}
 
-  .violeta.light {
-    background: #e056fd;
-  }
+.celeste.light {
+  background: #7ed6df;
+}
 
-  .naranja {
-    background: #f0932b;
-  }
+.violeta {
+  background: #be2edd;
+}
 
-  .naranja.light {
-    background: #ffbe76;
-  }
+.violeta.light {
+  background: #e056fd;
+}
 
-  .verde {
-    background: #6ab04c;
-  }
+.naranja {
+  background: #f0932b;
+}
 
-  .verde.light {
-    background: #badc58;
-  }
+.naranja.light {
+  background: #ffbe76;
+}
 
-  .btn-start {
-    width: 400px;
-    height: 100px;
-    background: #ecf0f1;
-    color: #2c3e50;
-    font-size: 2.5rem;
-    position: absolute;
-    top: calc(50% - 50px);
-    left: calc(50% - 200px);
-  }
+.verde {
+  background: #6ab04c;
+}
 
-  .hide {
-    display: none;
-  }
+.verde.light {
+  background: #badc58;
+}
+
+.game__menu {
+  display: flex;
+  flex-direction: column  ;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-start {
+  width: 150px;
+  height: 50px;
+  background: #ecf0f1;
+  color: #2c3e50;
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  margin-top: 15px;
+}
+
+.hide {
+  display: none;
+}

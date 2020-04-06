@@ -3,6 +3,8 @@ const celeste = document.getElementById('celeste')
 const violeta = document.getElementById('violeta')
 const naranja = document.getElementById('naranja')
 const verde = document.getElementById('verde')
+const chooseLevel = document.getElementById('levels')
+const chooseSpeed = document.getElementById('game__rules')
 
 class Juego {
     constructor () {
@@ -30,6 +32,10 @@ class Juego {
         this.ULTIMO_NIVEL = parseInt(chooseLevel.value)
         btnEmpezar.disabled = true;
     }
+
+    // bloquearSeleccion () {
+
+    // }
 
     generarSecuencia() {
         this.secuencia =  new Array(this.ULTIMO_NIVEL).fill(0).map(n => Math.floor(Math.random() * 4))
@@ -124,13 +130,43 @@ class Juego {
 
     ganoElJuego() {
         swal('Felicitaciones', 'Ganaste el juego!', 'success')
+        .then(() =>{
+            btnEmpezar.disabled = false;
+        })
+        .then(() => {
+            this.eliminarEventosClick()
+        })
     }
 
     perdioElJuego() {
         swal('Lo siento', 'Te equivocaste!', 'error')
-        .then(() => {
-            this.eliminarEventosClick()
-        })
+
+        swal({
+            title: "Lo siento",
+            text: "Ese no era el color correcto. Desea Seguir jugando?",
+            icon: "warning",
+            buttons: true,
+          })
+        .then((seguir => {
+            if (seguir){
+                swal({
+                    title: "EXCLENTE",
+                    text: "Ese es el espiritú",
+                    icon: "success",
+                    button: "YEAAAH",
+                  })
+                .then(() => this.eliminarEventosClick())
+                .then(() => empezarJuego())
+            }
+            else {
+                swal({
+                    title: "Una pena",
+                    text: "Nos vemos la proxima",
+                    icon: "info",
+                  })
+            }
+        }))
+
     }
 }
 

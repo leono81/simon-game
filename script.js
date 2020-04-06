@@ -17,6 +17,7 @@ class Juego {
         }
         this.subnivel = 0
         this.siguienteNivel = this.siguienteNivel.bind(this)
+        this.speed = 1000
         this.inicializar()
         this.generarSecuencia()
         this.siguienteNivel()
@@ -24,6 +25,8 @@ class Juego {
     
     inicializar() {
         const chooseLevel = document.getElementById('levels')
+        const chooseSpeed = document.getElementById('game__rules')
+        this.speed = parseInt(chooseSpeed.velocity.value)
         this.ULTIMO_NIVEL = parseInt(chooseLevel.value)
         btnEmpezar.disabled = true;
     }
@@ -71,7 +74,7 @@ class Juego {
     iluminarSecuencia(){
         for (let i = 0; i < this.level ; i++){
             let color = this.transformarNumeroAColor(this.secuencia[i])
-            setTimeout(() => this.iluminarColor(color), 1000 * i)
+            setTimeout(() => this.iluminarColor(color), this.speed * i)
         }
     }
 

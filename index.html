@@ -12,14 +12,30 @@
 
       <div class="game__menu">
         <h3>Rules</h3>
-        <label for="levels">Elije un nivel</label>
-        <select id="levels">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-        </select>
+
+        <form id="game__rules">
+
+          <label for="levels">Elije ciclos: </label>
+          <select id="levels">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+
+          <label for=Velocidad</label><br>
+          <input type="radio" name="velocity" id="caracol" value="3000">
+          <label for="caracol">Caracol</label><br>
+          <input type="radio" name="velocity" id="Humano" value="1000" checked>
+          <label for="Humano">Humano</label><br>
+          <input type="radio" name="velocity" id="guepardo" value="500">
+          <label for="guepardo">Guepardo</label><br>
+          <input type="radio" name="velocity" id="nep" value="250">
+          <label for="nep">No de este planeta</label><br>
+        </form>
+        
         <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+
       </div>
 
       <div class="gameboard">

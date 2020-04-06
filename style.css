@@ -75,6 +75,15 @@ h1  {
   flex-direction: column  ;
   justify-content: center;
   align-items: center;
+  width: 400px;
+}
+
+#levels {
+  margin-bottom: 10px  ;
+}
+
+.game__menu label {
+  line-height: 20px;
 }
 
 .btn-start {

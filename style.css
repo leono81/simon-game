@@ -150,7 +150,32 @@ h1  {
 }
 
 @media screen and (max-width:480px){
+  h1  {
+    text-align: center;
+    margin: 20px 0;
+  }
 
+  .game__menu {
+    height: 230px;
+    margin: 0;
+    width: 80%;
+  }
+
+  #game__rules {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #speed__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gameboard {  
+    width: 45vh;
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width:320px){
